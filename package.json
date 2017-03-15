@@ -1,11 +1,11 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "2.2.2+20161024.1",
+  "version": "2.2.6+20170315.1",
   "description": "",
   "dependencies": {
-    "onsenui": "^2.0.0-rc.5",
+    "onsenui": "2.2.x",
     "vue": "^2.1.10",
-    "vue-onsenui": "^2.0.0-alpha.0"
+    "vue-onsenui": ">=2.0.0-alpha.1"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
