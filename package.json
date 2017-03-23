@@ -6,11 +6,5 @@
     "onsenui": "2.2.x",
     "vue": "^2.1.10",
     "vue-onsenui": ">=2.0.0-alpha.1"
-  },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.18.0",
-    "nw": "^0.18.6",
-    "vue-loader": "^10.0.1",
-    "vue-template-compiler": "^2.1.10"
   }
 }
