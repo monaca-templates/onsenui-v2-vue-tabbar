@@ -7,8 +7,7 @@
     <v-ons-tabbar position="auto"
       :tabs="tabs"
       :visible="true"
-      :index="activeIndex"
-      @update="activeIndex = $event"
+      :index.sync="activeIndex"
     >
     </v-ons-tabbar>
   </v-ons-page>
