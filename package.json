@@ -1,10 +1,10 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "2.2.7+20170328.1",
+  "version": "2.2.7+20170620.1",
   "description": "",
   "dependencies": {
     "onsenui": "2.3.x",
     "vue": "^2.1.10",
-    "vue-onsenui": ">=2.0.0-beta.6"
+    "vue-onsenui": "2.0.0-beta.8"
   }
 }
