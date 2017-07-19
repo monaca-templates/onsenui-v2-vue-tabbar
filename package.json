@@ -1,10 +1,12 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "2.3.0+20170627.1",
+  "version": "2.3.2+20170719.1",
   "description": "",
   "dependencies": {
     "onsenui": "2.4.x",
-    "vue": "2.3.0",
-    "vue-onsenui": "2.0.0"
+    "vue": "2.3.x",
+    "vue-onsenui": "2.0.0",
+    "vue-template-compiler": "2.3.x",
+    "vue-loader": "11.0.0"
   }
 }
