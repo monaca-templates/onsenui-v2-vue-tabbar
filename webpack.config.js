@@ -1,10 +1,10 @@
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
-const path = require("path");
+const path = require('path');
 const argvs = require('yargs').argv;
 const devMode = process.env.WEBPACK_SERVE || argvs.mode === 'development';
 
@@ -14,6 +14,7 @@ const port = process.env.MONACA_TERMINAL ? argvs.port: ( argvs.port ? argvs.port
 const protocol = process.env.MONACA_TERMINAL ? 'https' : 'http';
 
 let webpackConfig = {
+  mode: devMode ? 'development' : 'production',
   cache: devMode ? true: false,
   entry: ['./src/main.js'],
 
@@ -106,8 +107,8 @@ let webpackConfig = {
       chunksSortMode: 'dependency'
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[name].css"
+      filename: '[name].css',
+      chunkFilename: '[name].css'
     }),
     new ProgressBarPlugin(),
   ],
@@ -129,7 +130,7 @@ if(devMode) {
   webpackConfig.serve = {
     port: port,
     host: host,
-    dev: {
+    devMiddleware: {
       publicPath: '/',
       stats: {
         colors: true,
@@ -140,7 +141,7 @@ if(devMode) {
         builtAt: true,
       }
     },
-    hot: true
+    hotClient: true
   }
 
   let devPlugins = [
