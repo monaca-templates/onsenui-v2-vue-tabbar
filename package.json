@@ -1,6 +1,6 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "description": "",
   "dependencies": {
     "cordova-plugin-splashscreen": "6.0.0",
@@ -8,7 +8,7 @@
     "monaca-plugin-monaca-core": "3.3.1",
     "onsenui": "2.11.2",
     "vue": "^2.6.10",
-    "vue-onsenui": "^2.6.2"
+    "vue-onsenui": "^2.6.3"
   },
   "scripts": {
     "monaca:preview": "npm run dev & npm run watch",
