@@ -24,12 +24,12 @@
         activeIndex: 0,
         tabs: [
 	  {
-	    icon: this.md() ? null : 'ion-home',
+	    icon: this.md() ? null : 'ion-ios-home',
 	    label: 'Home',
 	    page: homePage
 	  },
 	  {
-	    icon: this.md() ? null : 'ion-ios-bell',
+	    icon: this.md() ? null : 'ion-ios-notifications',
 	    label: 'News',
 	    page: newsPage,
 	    badge: 7
