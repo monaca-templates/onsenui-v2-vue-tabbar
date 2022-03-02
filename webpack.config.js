@@ -11,8 +11,7 @@ const devMode = process.env.WEBPACK_SERVE || argvs.mode === 'development';
 const DEFAULT_PORT = 8080;
 const host = process.env.MONACA_SERVER_HOST || argvs.host || '0.0.0.0';
 const port = argvs.port || DEFAULT_PORT;
-const wss = process.env.MONACA_TERMINAL ? true : false;
-const socketPort = port + 1; //it is used for webpack-hot-client
+const socketProtocol = process.env.MONACA_TERMINAL ? 'wss' : 'ws';
 
 let webpackConfig = {
   mode: devMode ? 'development' : 'production',
@@ -78,20 +77,17 @@ let webpackConfig = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?\S*)?$/,
-        loader: 'file-loader?name=assets/[name].[hash].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/[name].[hash].[ext]'
+        }
       },
       {
         test: /\.css$/,
         use: [          
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-          {
-            loader: 'css-loader',
-            options: { importLoaders: 1 }
-          },
-          {
-            loader: 'postcss-loader',
-            options: { sourceMap: true }
-          }
+          'css-loader',
+          'postcss-loader',
         ]
       },
       {
@@ -126,9 +122,13 @@ if(devMode) {
 
   webpackConfig.devtool = 'eval';
 
-  webpackConfig.serve = {
+  webpackConfig.devServer = {
     port: port,
     host: host,
+    allowedHosts: 'all',
+    client: {
+      webSocketURL: `${socketProtocol}://${host}:${port}/ws`,
+    },
     devMiddleware: {
       publicPath: '/',
       stats: {
@@ -139,17 +139,13 @@ if(devMode) {
         warnings: true,
         builtAt: true,
       }
-    },
-    hotClient: {
-      port: socketPort,
-      https: wss
     }
-  };
+  }
 
   let devPlugins = [
     new HtmlWebPackPlugin({
       template: 'src/public/index.html.ejs',
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'auto'
     })
   ];
 
@@ -161,7 +157,7 @@ if(devMode) {
   let prodPlugins = [
     new HtmlWebPackPlugin({
       template: 'src/public/index.html.ejs',
-      chunksSortMode: 'dependency',
+      chunksSortMode: 'auto',
       externalCSS: ['components/loader.css'],
       externalJS: ['components/loader.js'],
       minify: {
