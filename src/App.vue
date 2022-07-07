@@ -1,22 +1,20 @@
 <template>
   <v-ons-page>
-    <v-ons-toolbar>
-      <div class="center">{{ title }}</div>
+    <v-ons-toolbar> <div class="center">{{ title }}</div>
     </v-ons-toolbar>
 
-    <v-ons-tabbar position="auto"
+    <v-ons-tabbar
       :tabs="tabs"
-      :visible="true"
-      :index.sync="activeIndex"
+      v-model:active-index="activeIndex"
     >
     </v-ons-tabbar>
   </v-ons-page>
 </template>
 
 <script>
-  import settingsPage from 'Settings';
-  import homePage from 'Home';
-  import newsPage from 'News';
+  import settingsPage from './Settings.vue';
+  import homePage from './Home.vue';
+  import newsPage from './News.vue';
 
   export default {
     data() {

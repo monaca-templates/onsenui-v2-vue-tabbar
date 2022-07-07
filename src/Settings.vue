@@ -5,5 +5,3 @@
     </p>
   </v-ons-page>
 </template>
-
-
