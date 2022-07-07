@@ -1,12 +1,12 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "",
   "dependencies": {
     "cordova-plugin-splashscreen": "6.0.0",
     "monaca-plugin-monaca-core": "3.3.1",
     "onsenui": "2.11.2",
-    "vue": "^2.6.14",
+    "vue": "2.6.14",
     "vue-onsenui": "2.6.4"
   },
   "scripts": {
@@ -42,8 +42,8 @@
     "postcss-url": "^10.1.3",
     "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^3.3.1",
-    "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.14",
+    "vue-loader": "15.9.8",
+    "vue-template-compiler": "2.6.14",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4",
