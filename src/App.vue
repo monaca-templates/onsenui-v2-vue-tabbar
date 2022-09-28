@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  import settingsPage from 'Settings';
-  import homePage from 'Home';
-  import newsPage from 'News';
+  import settingsPage from './Settings.vue';
+  import homePage from './Home.vue';
+  import newsPage from './News.vue';
 
   export default {
     data() {

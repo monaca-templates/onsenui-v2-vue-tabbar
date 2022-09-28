@@ -1,21 +1,21 @@
 {
   "name": "onsenui-v2-vue-tabbar",
-  "version": "5.0.2",
+  "version": "6.0.0",
   "description": "",
   "dependencies": {
     "cordova-plugin-splashscreen": "6.0.0",
     "monaca-plugin-monaca-core": "3.3.1",
-    "onsenui": "2.11.2",
-    "vue": "2.6.14",
-    "vue-onsenui": "2.6.4"
+    "onsenui": "2.12.2",
+    "vue": "3.2.40",
+    "vue-onsenui": "3.0.0"
   },
   "scripts": {
     "monaca:preview": "npm run dev & npm run watch",
     "monaca:transpile": "npm run build",
     "monaca:debug": "npm run watch",
-    "dev": "webpack serve --open",
-    "build": "webpack --mode production",
-    "watch": "webpack --watch --mode production"
+    "dev": "cross-env NODE_ENV=development vite",
+    "watch": "cross-env NODE_ENV=development vite build --watch",
+    "build": "cross-env NODE_ENV=production vite build"
   },
   "cordova": {
     "plugins": {
@@ -24,29 +24,12 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.3",
-    "babel-preset-env": "^1.7.0",
+    "cross-env": "^7.0.3",
+    "@vitejs/plugin-vue": "^3.1.0",
+    "eslint": "^8.5.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "vite": "^3.0.7",
     "cordova": "^11.0.0",
-    "css-loader": "^6.6.0",
-    "cssnano": "^5.1.0",
-    "file-loader": "^6.2.0",
-    "html-loader": "^3.1.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.5.3",
-    "postcss": "^8.4.7",
-    "postcss-loader": "^6.2.1",
-    "postcss-preset-env": "^7.4.1",
-    "postcss-url": "^10.1.3",
-    "progress-bar-webpack-plugin": "^2.1.0",
-    "style-loader": "^3.3.1",
-    "vue-loader": "15.9.8",
-    "vue-template-compiler": "2.6.14",
-    "webpack": "^5.69.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.4",
     "yargs": "^17.3.1"
   }
 }
