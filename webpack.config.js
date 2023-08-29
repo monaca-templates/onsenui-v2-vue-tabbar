@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -35,7 +34,7 @@ let webpackConfig = {
     mergeDuplicateChunks: true,
     providedExports: true,
   },
-  
+
   resolve: {
     extensions: ['.js', '.vue', '.json', '.css', '.html', '.styl'],
     modules: [
@@ -57,8 +56,8 @@ let webpackConfig = {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: [ 'env' ]
-          } 
+            presets: ['@babel/preset-env']
+          }
         }]
       },
       {
@@ -84,10 +83,9 @@ let webpackConfig = {
       },
       {
         test: /\.css$/,
-        use: [          
+        use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
         ]
       },
       {
@@ -96,7 +94,7 @@ let webpackConfig = {
       }
     ]
   },
-  
+
   // See below for dev plugin management.
   plugins: [
     new VueLoaderPlugin(),
@@ -106,11 +104,11 @@ let webpackConfig = {
     }),
     new ProgressBarPlugin(),
   ],
- 
+
   resolveLoader: {
-    modules: [ 'node_modules' ]
+    modules: ['node_modules']
   },
- 
+
   performance: {
     hints: false
   }
@@ -118,7 +116,7 @@ let webpackConfig = {
 
 
 // Development mode
-if(devMode) {
+if (devMode) {
 
   webpackConfig.devtool = 'eval';
 
@@ -131,33 +129,24 @@ if(devMode) {
     },
     devMiddleware: {
       publicPath: '/',
-      stats: {
-        colors: true,
-        errorDetails: true,
-        performance: true,
-        source: true,
-        warnings: true,
-        builtAt: true,
-      }
+      stats: true
     }
   }
 
   let devPlugins = [
     new HtmlWebPackPlugin({
-      template: 'src/public/index.html.ejs',
-      chunksSortMode: 'auto'
+      template: 'src/public/index.html.ejs'
     })
   ];
 
-  webpackConfig.plugins = webpackConfig.plugins.concat( devPlugins　);
+  webpackConfig.plugins = webpackConfig.plugins.concat(devPlugins);
 
 } else {
-  
+
   // Production mode
   let prodPlugins = [
     new HtmlWebPackPlugin({
       template: 'src/public/index.html.ejs',
-      chunksSortMode: 'auto',
       externalCSS: ['components/loader.css'],
       externalJS: ['components/loader.js'],
       minify: {
@@ -169,7 +158,7 @@ if(devMode) {
       }
     })
   ];
-  webpackConfig.plugins = webpackConfig.plugins.concat( prodPlugins );
+  webpackConfig.plugins = webpackConfig.plugins.concat(prodPlugins);
 
 }
 
