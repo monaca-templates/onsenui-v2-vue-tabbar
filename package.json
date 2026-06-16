@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "monaca-plugin-monaca-core": "3.3.1",
-    "onsenui": "2.12.8",
+    "onsenui": "2.12.9",
     "vue": "2.6",
     "vue-onsenui": "2.7.2"
   },
